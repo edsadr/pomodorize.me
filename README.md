@@ -2,6 +2,8 @@
 
 > Multiplatform Pomodoro timer powered by Electron and Vue.js
 
+![pomodorize.me](screenshot.png)
+
 ## Build Setup
 
 ``` bash
