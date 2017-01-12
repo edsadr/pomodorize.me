@@ -1,6 +1,7 @@
 {
   "name": "pomodorize.me",
-  "version": "0.0.0",
+  "productName": "pomodorize.me",
+  "version": "1.0.0",
   "description": "Pomodoro timer powered by Electron",
   "scripts": {
     "build": "node tasks/release.js",
@@ -10,6 +11,9 @@
     "build:mas": "cross-env PLATFORM_TARGET=mas node tasks/release.js",
     "build:win32": "cross-env PLATFORM_TARGET=win32 node tasks/release.js",
     "dev": "node tasks/runner.js",
+    "dist:linux": "build -l --x64 && build --publish onTag",
+    "dist:mac": "build -m --x64 && build --publish onTag",
+    "dist:win": "build -w --x64 && build --publish onTag",
     "e2e": "npm run pack && mocha test/e2e",
     "lint": "eslint --ext .js,.vue -f ./node_modules/eslint-friendly-formatter app test",
     "lint:fix": "eslint --ext .js,.vue -f ./node_modules/eslint-friendly-formatter --fix app test",
@@ -37,6 +41,7 @@
     "del": "^2.2.1",
     "devtron": "^1.1.0",
     "electron": "^1.3.1",
+    "electron-builder": "^10.17.3",
     "electron-devtools-installer": "^1.1.4",
     "electron-packager": "^8.0.0",
     "electron-rebuild": "^1.1.3",
@@ -76,8 +81,24 @@
     "webpack-merge": "^0.14.1"
   },
   "dependencies": {},
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/edsadr/pomodorize.me.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edsadr/pomodorize.me.git"
+  },
+  "build": {
+    "appId": "com.pomodorize.me",
+    "description": "Simple and beautiful Pomodoro timer",
+    "publish": "github",
+    "linux": {
+      "description": "Simple and beautiful Pomodoro timer",
+      "target": ["tar.gz", "deb"]
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "app/icons/icon.icns"
+    },
+    "win": {
+      "icon": "app/icons/icon2X.ico"
+    }
   }
 }

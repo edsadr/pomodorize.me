@@ -1,6 +1,6 @@
 {
   "name": "pomodorize.me",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Pomodoro timer powered by Electron",
   "main": "electron.js",
   "dependencies": {

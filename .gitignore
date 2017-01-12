@@ -3,6 +3,7 @@ app/dist/index.html
 app/dist/build.js
 app/dist/styles.css
 builds/*
+dist/*
 coverage
 node_modules
 npm-debug.log
