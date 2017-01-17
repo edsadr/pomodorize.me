@@ -6,7 +6,6 @@ const platform = require('os').platform()
 const path = require('path')
 const electron = require('electron')
 const username = require('username')
-const notifier = require('electron-notifications')
 
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
@@ -17,20 +16,6 @@ let mainWindow
 let config = {}
 
 global.trayIcon
-
-global.notification = (message) => {
-  let note = notifier.notify('Pomodorize.me', {
-    message: message,
-    icon: path.join(__dirname, 'icons', 'icon.svg'),
-    buttons: ['Close'],
-    duration: 4500,
-    flat: true
-  })
-
-  let closeNote = () => note.close()
-  note.on('buttonClicked', closeNote)
-  note.on('swipedRight', closeNote)
-}
 
 global.getAvatar = (cb) => {
   let avatarFile = path.join(app.getPath('appData'), 'pomodorize.me', `${user}.png`)
