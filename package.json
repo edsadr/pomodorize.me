@@ -1,7 +1,7 @@
 {
   "name": "pomodorize.me",
   "productName": "pomodorize.me",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pomodoro timer powered by Electron",
   "scripts": {
     "build": "node tasks/release.js",
@@ -91,7 +91,10 @@
     "publish": "github",
     "linux": {
       "description": "Simple and beautiful Pomodoro timer",
-      "target": ["tar.gz", "deb"]
+      "target": [
+        "tar.gz",
+        "deb"
+      ]
     },
     "mac": {
       "category": "public.app-category.productivity",
