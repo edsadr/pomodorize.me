@@ -79,7 +79,12 @@
       finished: function (val) {
         if (val) {
           if (process.env.NODE_ENV !== 'testing') {
-            this.$electron.remote.getGlobal('notification')('You did it!, please take some<br>rest and start again')
+            const notify = new Notification('Pomodorize.me', {
+              body: 'You did it!, please take some rest and start again',
+              silent: true
+            })
+
+            notify.onclick = () => { this.close() }
           }
         }
       }
